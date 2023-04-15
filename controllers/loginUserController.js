@@ -11,13 +11,13 @@ module.exports = (req, res) => {
             let cmp = bcrypt.compare(password, user.password).then((match) => {
                 if (match) {
                     req.session.userId = user._id;
-                    res.redirect('/')
+                    res.redirect('/home');
                 } else {
-                    res.redirect('/login')
+                    res.redirect('/login');
                 }
             })
         } else {
-            res.redirect('/login')
+            res.redirect('/login');
         }
     })
 };
