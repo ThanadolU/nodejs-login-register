@@ -52,12 +52,19 @@
   <form action="/user/register" method="POST">
     <h1 class="h3 mb-3 fw-normal">Sign Up</h1>
 
+    <% if (errors != null && errors.length > 0) { %>
+      <% for (let i = 0; i < errors.length > 0; i++) { %>
+        <p class="alert alert-danger"></p>
+        <%= errors[i]%>
+      <% } %>
+    <% } %>
+
     <div class="form-floating">
-      <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <input type="email" name="email" value="<%= email %>" class="form-control" id="floatingInput" placeholder="name@example.com">
       <label for="floatingInput">Email address</label>
     </div>
     <div class="form-floating">
-      <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <input type="password" name="password"  value="<%= password %>" class="form-control" id="floatingPassword" placeholder="Password">
       <label for="floatingPassword">Password</label>
     </div>
 
